@@ -1,26 +1,29 @@
 package students.list;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class School {
-    private List<Student> students;
+    private Map<Integer,Student> students;
 
     public School() {
-        this.students = new ArrayList<>();
+        this.students = new HashMap<>();
 
     }
     public void addStudent(Student student) {
-        students.add(student);
+        students.put(student.getId(), student);
 
     }
+
     public void printStudents() {
-        for (Student student : students) {
+        for (Student student : students.values()) {
             System.out.println(student);
         }
     }
     public void findStudentById(int id) {
-        for (Student student : students){
+        for (Student student : students.values()){
             if (student.getId() == id){
                 System.out.println(student);
                 break;
